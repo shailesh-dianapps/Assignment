@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cards</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h3>📌 Super Product List</h3>
+            <p>Great Deals on Quality Electronic Gadgets</p>
+        </header>
+
+        <main class="product-grid">
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Camera" />
+                <h3>Fujifilm Mirrorless Camera</h3>
+                <p>X-A7 24.2 MP Mirrorless Camera with XC 15-45 mm Lens-Camel</p>
+                <p><strong>Product Code:</strong> 1001</p>
+                <p class="price">Price: SEK 4500 <span class="old-price">SEK 6000</span></p>
+                <button onclick="addToList(4500, '1001', this)">Add to list</button>
+
+            </div>
+
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Watch" />
+                <h3>Fitbit Versa Smartwatch</h3>     
+                <p>Versa 3 Health and Fitness Smartwatch with GPS and heart-rate tracking</p>
+                <p><strong>Product Code:</strong> 1002</p>      
+                <p class="price">Price: SEK 1600 <span class="old-price">SEK 2000</span></p>
+                <button onclick="addToList(1600, '1002', this)">Add to list</button>
+            </div>
+
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Headphones" />
+                <h3>Sony Wireless Headphones</h3>
+                <p>WI-C100 Headphones with Noise cancellation for easier and handsfree experience-Blue</p>
+                <p><strong>Product Code:</strong> 1003</p>
+                <p class="price">Price: SEK 300</p>
+                <button onclick="addToList(300, '1003', this)">Add to list</button>
+            </div>
+
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Speaker" />
+                <h3>Bose Portable Speaker</h3>
+                <p>SoundLink Flex Bluetooth Wireless Waterproof Speaker for Outdoor Travel-Black</p>
+                <p><strong>Product Code:</strong> 1004</p>
+                <p class="price">Price: SEK 1800 <span class="old-price">SEK 2000</span></p>
+                <button onclick="addToList(1800, '1004', this)">Add to list</button>
+            </div>
+
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Tablet" />
+                <h3>SAMSUNG Galaxy Tablet</h3>
+                <p>A8 Android Tablet WiFi 7040 mAH Battery 10.5 inch TFT Screen Four Speakers 32GB/3GB RAM</p>
+                <p><strong>Product Code:</strong> 1005</p>
+                <p class="price">Price: SEK 2000</p>
+                <button onclick="addToList(2000, '1005', this)">Add to list</button>
+            </div>
+
+            <div class="card">
+                <img src="pexels-alexasfotos-2220337.jpg" alt="Printer" />
+                <h3>EPSON Inkjet Printer</h3>
+                <p>EPSON WorkForce Pro WF-3820 DWF all-in-one Printer. Fax, scan, copy & print</p>
+                <p><strong>Product Code:</strong> 1006</p>
+                <p class="price">Price: SEK 2500 <span class="old-price">SEK 3000</span></p>
+                <button onclick="addToList(2500, '1006', this)">Add to list</button>
+            </div>
+        </main>
+
+        <section class="wishlist">
+            <h2>Wishlist</h2>
+            <p>Your Wishlist total is: SEK <span id="wishlist-total">0</span></p>
+        </section>
+
+        <footer>
+            <h4>📌 Super Product List</h4>
+            <p>Great Deals on Quality Electronic Gadgets</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
