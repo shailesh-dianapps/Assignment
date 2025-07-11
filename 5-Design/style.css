@@ -14,21 +14,21 @@ header, footer{
 
 .product-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 20px;
 }
 
 
 .card{
-    height: 400px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card img{
@@ -60,7 +60,8 @@ header, footer{
 }
 
 .card button{
-    margin-left: 470px;
+    align-self: flex-end;
+    margin: 10px 15px 15px 15px; 
     padding: 6px 10px;
     border: none;
     background-color: #444;
