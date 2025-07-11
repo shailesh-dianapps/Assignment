@@ -19,6 +19,7 @@ header, footer{
     padding: 20px;
 }
 
+
 .card{
     height: 400px;
     background: #fff;
@@ -79,4 +80,32 @@ header, footer{
     font-size: 18px;
 } 
 
+#wishlist-items{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#wishlist-items li{
+    margin: 10px auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    max-width: 600px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+#wishlist-items button{
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#wishlist-items button:hover{
+    background: #e74c3c;
+}
 
