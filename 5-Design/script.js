@@ -6,7 +6,7 @@ function addToList(price, productCode, buttonElement){
         alert("This product is already in your wishlist.");
         return;
     }
-
+        
     wishlist.add(productCode);
     total += price;
     document.getElementById("wishlist-total").innerText = total;
@@ -14,7 +14,7 @@ function addToList(price, productCode, buttonElement){
     buttonElement.onclick = () => removeFromList(price, productCode, buttonElement);
 }
 
-function removeFromList(price, productCode, buttonElement) {
+function removeFromList(price, productCode, buttonElement){
     if(!wishlist.has(productCode)) return;
     wishlist.delete(productCode);
     total -= price;
