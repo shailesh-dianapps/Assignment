@@ -123,7 +123,7 @@ app.put('/students/:id', async (req, res) => {
         updates.password = await bcrypt.hash(password, 10);
     }
 
-    // unique validation fails for first_name and last_name
+    // unique validation fails for first_name and last_name.
 
     const result = await collection.updateOne({_id: new ObjectId(id)}, {$set: updates});
 
