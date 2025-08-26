@@ -11,6 +11,9 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/signup', async (req, res) => {
 
+    // use Proper error handling : try,catch is missing
+    // update logic of existing user
+
     const collection = db.collection('students');
 
     const {first_name, last_name, age, gender, phone, password, email} = req.body;
@@ -50,8 +53,7 @@ app.post('/signup', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newuser = {first_name: normalizedFirst, last_name: normalizedLast, age, gender, phone, password: hashedPassword, email};
-
+    const newuser = {first_name, last_name, age, gender, phone, password: hashedPassword, email};
     await collection.insertOne(newuser);
     return res.status(200).json({message: "User Created successfully."});
 })
@@ -66,7 +68,7 @@ app.get('/students/:id', async (req, res) => {
     const collection = db.collection('students');
     const {id} = req.params;
 
-    if(!ObjectId.isValid(id)) return res.status(400).json({error: "Invalid student ID."});
+    if(!ObjectId.isValid(id)) return res.status(400).json({error: "Invalid student ID."}); // 10
 
     const student = await collection.findOne({_id: new ObjectId(id)});
 
@@ -116,6 +118,8 @@ app.put('/students/:id', async (req, res) => {
         if(!passwordRegex.test(password)) return res.status(400).json({error: "Password must be at least 8 characters"});
         updates.password = await bcrypt.hash(password, 10);
     }
+
+    // unique validation fails for first_name and last_name
 
     const result = await collection.updateOne({_id: new ObjectId(id)}, {$set: updates});
 
