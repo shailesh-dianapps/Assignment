@@ -12,7 +12,6 @@ app.use(express.urlencoded({extended: true}));
 app.post('/signup', async (req, res) => {
     try{
         // update logic of existing user
-
         const db = await connectDB();   
         const collection = db.collection('students');
 
