@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/signup', async (req, res) => {
 
-    // use Proper error handling : try,catch is missing
+    // use Proper error handling : try, catch is missing
     // update logic of existing user
 
     const db = await connectDB();   
