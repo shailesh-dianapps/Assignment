@@ -1,14 +1,21 @@
-import {MongoClient} from "mongodb";
+const {MongoClient} = require("mongodb");
 const connectionString = "mongodb://localhost:27017/";
 const client = new MongoClient(connectionString);
-let conn;
 
-try{
-    conn = await client.connect();
-}
-catch(e){
-    console.error(e);
+let db;
+
+async function connectDB(){
+    if(db) return db; 
+    try{
+        await client.connect();
+        db = client.db("temp");
+        console.log("Connected to MongoDB");
+        return db;
+    }
+    catch(err){
+        console.error("MongoDB connection error:", err);
+        process.exit(1);
+    }
 }
 
-let db = conn.db("temp");
-export default db;
+module.exports = connectDB;

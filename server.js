@@ -1,7 +1,7 @@
-import express from 'express';
-import db from "./connection/conn.js";
-import bcrypt from "bcryptjs";
-import {ObjectId} from 'mongodb';
+const express = require("express");
+const connectDB = require("./connection/conn.js");
+const bcrypt = require("bcryptjs");
+const {ObjectId} = require("mongodb");
 
 const app = express();
 const port = 3000;
@@ -14,6 +14,7 @@ app.post('/signup', async (req, res) => {
     // use Proper error handling : try,catch is missing
     // update logic of existing user
 
+    const db = await connectDB();   
     const collection = db.collection('students');
 
     const {first_name, last_name, age, gender, phone, password, email} = req.body;
@@ -59,12 +60,14 @@ app.post('/signup', async (req, res) => {
 })
 
 app.get('/students', async (req, res) => {
+    const db = await connectDB();   
     const collection = db.collection('students');
     const students = await collection.find({}).toArray();
     res.json(students);
 })
 
 app.get('/students/:id', async (req, res) => {
+    const db = await connectDB();   
     const collection = db.collection('students');
     const {id} = req.params;
 
@@ -77,6 +80,7 @@ app.get('/students/:id', async (req, res) => {
 })
 
 app.put('/students/:id', async (req, res) => {
+    const db = await connectDB();   
     const collection = db.collection('students');
     const {id} = req.params;
     const {first_name, last_name, gender, age, email, phone, password} = req.body;
@@ -127,6 +131,7 @@ app.put('/students/:id', async (req, res) => {
 });
 
 app.delete('/students/:id', async (req, res) => {
+    const db = await connectDB();   
     const collection = db.collection('students');
     const {id} = req.params;
 
