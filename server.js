@@ -2,9 +2,9 @@ const express = require("express");
 const connectDB = require("./connection/conn.js");
 const bcrypt = require("bcryptjs");
 const {ObjectId} = require("mongodb");
+require('dotenv').config()
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -166,6 +166,8 @@ app.delete('/students/:id', async (req, res) => {
         res.status(500).json({error: "Internal Server Error. Please try again later."});
     }
 });
+
+const port = process.env.port;
 
 app.listen(port, () => {
     console.log(`Server listening on ${port}`)
